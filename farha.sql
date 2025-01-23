@@ -30,7 +30,7 @@ CREATE TABLE billet(
 
 CREATE TABLE reservation(
     idRsv CHAR(4) PRIMARY KEY ,
-    nombreBitNoml VARCHAR(30) NOT NULL ,
+    nombreBitNorm VARCHAR(30) NOT NULL ,
     nombreBitRedt VARCHAR(30) NOT NULL ,
     idUtil VARCHAR(4),
     CONSTRAINT fk_utilisateur FOREIGN KEY(idUtil) REFERENCES utilisateur( idUtil)
