@@ -27,7 +27,6 @@ CREATE TABLE billet(
     idRsv char(4) , CONSTRAINT fk_reservatio FOREIGN KEY(idRsv) REFERENCES reservation(idRsv) 
 )
 
-
 CREATE TABLE reservation(
     idRsv CHAR(4) PRIMARY KEY ,
     nombreBitNoml VARCHAR(30) NOT NULL ,
