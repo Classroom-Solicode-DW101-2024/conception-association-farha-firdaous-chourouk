@@ -25,6 +25,7 @@ CREATE TABLE billet(
     TypeBit VARCHAR(30) NOT NULL , 
     numéroPlc VARCHAR(30) NOT NULL , 
     idRsv char(4) , CONSTRAINT fk_reservatio FOREIGN KEY(idRsv) REFERENCES reservation(idRsv) 
+    on delete cascade on update cascade
 )
 
 CREATE TABLE reservation(
@@ -32,16 +33,20 @@ CREATE TABLE reservation(
     nombreBitNoml VARCHAR(30) NOT NULL ,
     nombreBitRedt VARCHAR(30) NOT NULL ,
     idUtil VARCHAR(4),
-    CONSTRAINT fk_utilisateur FOREIGN KEY(idUtil) REFERENCES utilisateur( idUtil) 
+    CONSTRAINT fk_utilisateur FOREIGN KEY(idUtil) REFERENCES utilisateur( idUtil)
+    on delete cascade on update cascade 
 )
 
 CREATE TABLE edition(
     idEdition CHAR(4) PRIMARY KEY ,
     dateEvent DATETIME  ,
     idSalle char(4) ,
-    CONSTRAINT fk_Salle FOREIGN KEY(idSalle) REFERENCES salle( idSalle) ,
-    idRsv char(4) ,
-    CONSTRAINT fk_reservation FOREIGN KEY(idRsv) REFERENCES reservation( idRsv),
+    CONSTRAINT fk_Salle FOREIGN KEY(idSalle) REFERENCES salle( idSalle) 
+    on delete cascade on update cascade ,
+    idRsv char(4) 
+    CONSTRAINT fk_reservation FOREIGN KEY(idRsv) REFERENCES reservation( idRsv)
+     on delete cascade on update cascade,
     idEvnt char(4) ,
-    CONSTRAINT fk_evenement FOREIGN KEY(idEvnt) REFERENCES evenement( idEvnt) 
+    CONSTRAINT fk_evenement FOREIGN KEY(idEvnt) REFERENCES evenement( idEvnt)
+     on delete cascade on update cascade 
 )
