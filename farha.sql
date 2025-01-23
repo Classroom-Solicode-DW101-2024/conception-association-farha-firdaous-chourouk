@@ -43,7 +43,7 @@ CREATE TABLE edition(
     idSalle char(4) ,
     CONSTRAINT fk_Salle FOREIGN KEY(idSalle) REFERENCES salle( idSalle) 
     on delete cascade on update cascade ,
-    idRsv char(4) 
+    idRsv char(4), 
     CONSTRAINT fk_reservation FOREIGN KEY(idRsv) REFERENCES reservation( idRsv)
      on delete cascade on update cascade,
     idEvnt char(4) ,
